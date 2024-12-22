@@ -1,5 +1,3 @@
-package tobyspring
-
 fun main() {
     println("Hello Kotlin1")
     println("Hello Kotlin2")
