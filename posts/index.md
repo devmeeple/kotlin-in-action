@@ -18,6 +18,11 @@
 3. 두 변수의 합을 계산하고 결과를 변수 `sum`에 할당한다.
 4. `sum` 변수의 값을 출력한다.
 
+요구사항에 맞춰 `sum` 변수를 선언하고 할당했다. 하지만 테스트 코드를 작성할 땐 `result` 변수라고 이름을 사용하면
+더욱 좋지 않을까? 
+
+`println()` 함수는 `sout`으로 등록되어 있다.
+
 ## 문제 3 - long, boolean 데이터 타입
 
 > Primitive type vs. Reference type
