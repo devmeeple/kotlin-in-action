@@ -23,4 +23,13 @@ class VariableEx1 {
         assertThat(sum).isEqualTo(30)
         println()
     }
+
+    @Test
+    fun `데이터 타입 추론을 검증한다`() {
+        val num = 10000000000
+        val isOk = true
+
+        assertThat(num is Long).isTrue()
+        assertThat(isOk is Boolean).isTrue()
+    }
 }
