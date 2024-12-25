@@ -31,4 +31,13 @@ class OperatorTest {
         assertThat(average).isEqualTo(2.5)
     }
 
+    @Test
+    fun `합격 범위를 계산한다`() {
+        val score = 80
+
+        val result = score >= 80 && score <= 100
+
+        assertThat(result).isTrue()
+    }
+
 }
