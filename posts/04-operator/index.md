@@ -15,3 +15,7 @@
 
 1. `score` 변수를 선언한다.
 2. `score`가 80점 이상이고, 100점 이하면 `true`를 출력한다. 아니면 `false`를 출력한다.
+
+**<참고 자료>**
+
+- [Kotlin Docs 'Ranges and progressions'](https://kotlinlang.org/docs/ranges.html) 
