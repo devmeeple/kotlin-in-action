@@ -16,9 +16,9 @@ class MemberServiceTest {
 
     @Test
     fun `회원가입 후 고유 ID는 변경할 수 없다`() {
-        val id = 1
+        val member = Member(1, "유재석", 53)
 
-        assertThat(id).isEqualTo(1)
+        assertThat(member.id).isEqualTo(1)
     }
 
     @Test
@@ -32,7 +32,7 @@ class MemberServiceTest {
 
     @Test
     fun `이름, 나이, 이메일을 포함한 회원을 가입한다`() {
-        val member = Member("유재석", 53)
+        val member = Member(1, "유재석", 53)
 
         assertThat(member.name).isEqualTo("유재석")
         assertThat(member.age).isEqualTo(53)
@@ -41,7 +41,7 @@ class MemberServiceTest {
 
     @Test
     fun `회원가입 후 이메일을 변경할 수 있다`() {
-        val member = Member("유재석", 53)
+        val member = Member(1, "유재석", 53)
 
         member.email = "youquizontheblock@example.com"
 
@@ -49,7 +49,11 @@ class MemberServiceTest {
     }
 }
 
-data class Member(val name: String, val age: Int, var email: String? = "unknown@example.com")
+data class Member(
+    val id: Int,
+    val name: String,
+    val age: Int,
+    var email: String? = "unknown@example.com")
 
 // TODO 파라미터 기본값을 할당할 수 없을까, Elvis 연산자로 문제를 해결해야 할까?
 fun signUp(email: String?): String {
