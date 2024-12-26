@@ -18,7 +18,7 @@
 - 타입을 자동으로 추론한다. 물론 명시적으로 작성할 수 있다.
 - 선언과 동시에 초기값 할당을 권장한다.
 - 컬렉션에는 `element`를 추가할 수 있다.
-  - 불변하지만 참조형이니 가능하다.
+    - 불변하지만 참조형이니 가능하다.
 
 **long과 final long의 차이**
 
@@ -28,8 +28,9 @@
 
 - [ ] boxing, unboxing
 
-> In Kotlin, everything is an object in the sense that you can call member functions and properties on any variable. 
-> While certain types have an optimized internal representation as primitive values at runtime (such as numbers, characters, booleans and others), 
+> In Kotlin, everything is an object in the sense that you can call member functions and properties on any variable.
+> While certain types have an optimized internal representation as primitive values at runtime (such as numbers,
+> characters, booleans and others),
 > they appear and behave like regular classes to you.
 > <br>
 > 몇몇 타입은 내부적으로 특별하게 처리한다. 실행 시에는 Primitive 값으로 표현하되, 코드에서는 평범한 클래스처럼 보인다.
@@ -73,15 +74,15 @@ fun main() {
 
 - Safe Call: `?.`, `null`이 아니면 실행한다.
 - Elvis 연산자: 앞의 연산 결과가 `null`이면 조건 이후 값을 사용한다.
-  - Elvis 연산자를 90도 회전했을 때 엘비스 프레슬리와 비슷하다고 하여 'Elvis 연산자'라고 부른다고 한다.
-  - Early Return 패턴에도 사용할 수 있다.
+    - Elvis 연산자를 90도 회전했을 때 엘비스 프레슬리와 비슷하다고 하여 'Elvis 연산자'라고 부른다고 한다.
+    - Early Return 패턴에도 사용할 수 있다.
 
 ### 2.2.3 널 아님 단언
 
 `nullable type`이지만, 아무리 생각해도 `null` 담을 수 없다.
 
 - `!!`: 넌 절대로 `null`일 수가 없어. 컴파일러 내 눈을 바라봐. *TypeScript가 떠오른다.
-  - 혹시나 `null`이 들어오면 `NPE`가 발생한다. **확실하지 않으면 걸지 마라.** 
+    - 혹시나 `null`이 들어오면 `NPE`가 발생한다. **확실하지 않으면 걸지 마라.**
 
 ### 2.2.4 플랫폼 타입
 
@@ -100,9 +101,9 @@ fun main() {
 1. 기본 타입: 할당된 초깃값을 읽어 타입을 추론한다. 기본 타입 간 변환은 명시적`(to 타입)`으로 이뤄진다.
 2. 타입 캐스팅: `is`, `!is`, `as`, `as?`를 이용해 타입을 확인, 캐스팅한다. (도식화 필요)
 3. 3가지 특이한 타입: `Any`는 `Object` 아버지다. `Unit`은 `void`, `Nothing`은 정상적이지 않은 친구를 의미한다.
-4. String Interpolation, String indexing 
-   - 문자열을 효과적으로 가공할 때 `${변수}`, `""""""`를 사용한다.
-   - 문자열을 배열처럼 다뤄 값을 가져온다.
+4. String Interpolation, String indexing
+    - 문자열을 효과적으로 가공할 때 `${변수}`, `""""""`를 사용한다.
+    - 문자열을 배열처럼 다뤄 값을 가져온다.
 
 ### 2.3.1 기본 타입
 
@@ -138,8 +139,8 @@ private fun printAgeIfPerson(obj: Any): Int {
 자바에서는 `instaceof`를 사용하지만 코틀린에서는 `is`를 사용한다. 타입 변환은 `as`를 사용한다.
 
 - 스마트 캐스트를 통해 컨텍스트에서 타입을 추론한다. `if`문에서 타입을 이미 체크했기 때문에 짧게 작성 가능하다.
-  - `is`의 반대 `!is`(not is)도 사용 가능하다. 타입이 아니라면...
-  - `null`을 고려하여 `as?`도 사용한다. *거듭 반복되는 `null` 다루기. Safe call 기억하시죠?
+    - `is`의 반대 `!is`(not is)도 사용 가능하다. 타입이 아니라면...
+    - `null`을 고려하여 `as?`도 사용한다. *거듭 반복되는 `null` 다루기. Safe call 기억하시죠?
 
 ### 2.3.3 특이한 타입 3가지
 
@@ -156,13 +157,13 @@ private fun printAgeIfPerson(obj: Any): Int {
 **Unit**
 
 - 자바의 `void`와 동일한 역할. 하지만 조금 다르다(?) 제네릭에서 계속...
-- 함수형 프로그래밍에서 `Unit`은 단 하나의 인스턴스만 갖는 타입을 의미한다. 
-  - `Unit`은 실제 존재하는 타입이라는 것을 표현한다.
+- 함수형 프로그래밍에서 `Unit`은 단 하나의 인스턴스만 갖는 타입을 의미한다.
+    - `Unit`은 실제 존재하는 타입이라는 것을 표현한다.
 
 **Nothing**
 
 - 함수가 정상적으로 끝나지 않았다는 사실을 표현한다.
-  - 무조건 예외를 반환하는 함수, 무한 루프 함수 등
+    - 무조건 예외를 반환하는 함수, 무한 루프 함수 등
 
 ### 2.3.4 String interpolation, String indexing
 
@@ -188,3 +189,43 @@ val message = """
 **<참고 자료>**
 
 - [Kotlin Docs 'Strings'](https://kotlinlang.org/docs/strings.html)
+
+## 2.4 연산자를 다루는 방법
+
+1. 단항 연산자, 산술 연산자: 자바와 똑같습니다.
+2. 비교 연산자와 동등성, 동일성: 비교 연산자 자바와 똑같다. 다만 객채끼리도 자동 호출되는 `compareTo`를 사용해 비교 연산자를 사용할 수 있다(?)
+3. 논리 연산자, 특이한 연산자
+    - `in`, `!in`, `a..b`
+4. 연산자 오버로딩: 응용이 아직 납득되지 않는다. 심화다.
+
+### 2.4.2 비교 연산자와 동등성, 돌일성
+
+- 자바와 다르게 객체를 비교할 때 비교 연산자를 사용하면 자동으로 `compareTo`를 호출한다.
+- 동등성 vs. 동일성
+    - 동등성(Equality): 두 객체의 값이 같은가?
+    - 동일성(Identity): 완전히 동일한 객체인가? 주소가 같은가?
+
+**동등성, 동일성**
+
+- 자바에서는 동일성에 `==`을 사용, 동등성에 `equals`를 직접 호출했다.
+- 코틀린에서는 동일성에 `===`를 사용, 동등성에 `==`를 호출한다.
+    - 간접적으로 `equals`를 호출해 준다.
+
+### 2.4.3 논리 연산자, 특이한 연산자
+
+**논리 연산자**
+
+- 자바와 마찬가지로, Lazy 연산을 지원한다. 불필요한 연산을 피한다.
+    - *단락 평가 아닌가요?
+
+**특이한 연산자: 반복문에서 만나요**
+
+- `in`, `!in`: 컬렉션 또는 범위에 포함되어 있다. 포함되어 있지 않다. 반복문에서 자주 사용한다.
+- `a..b`
+    - `a`부터 `b`까지의 범위 객체를 생성한다.
+
+**연산자 오버로딩 ** ✅
+
+> 어떻게 응용하는지 심화라고 한다. 아직 이해가 잘되지 않는다.
+
+객체마다 연산자를 직접 지정할 수 있다.
