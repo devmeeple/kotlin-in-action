@@ -94,3 +94,97 @@ fun main() {
 ### ETC
 
 > "null을 만든 걸 후회한다" <출처: Tony Hoare - ALGOL 60 개발자>
+
+## 2.3 Type을 다루는 방법
+
+1. 기본 타입: 할당된 초깃값을 읽어 타입을 추론한다. 기본 타입 간 변환은 명시적`(to 타입)`으로 이뤄진다.
+2. 타입 캐스팅: `is`, `!is`, `as`, `as?`를 이용해 타입을 확인, 캐스팅한다. (도식화 필요)
+3. 3가지 특이한 타입: `Any`는 `Object` 아버지다. `Unit`은 `void`, `Nothing`은 정상적이지 않은 친구를 의미한다.
+4. String Interpolation, String indexing 
+   - 문자열을 효과적으로 가공할 때 `${변수}`, `""""""`를 사용한다.
+   - 문자열을 배열처럼 다뤄 값을 가져온다.
+
+### 2.3.1 기본 타입
+
+- Int
+- Long
+- Float
+- Double
+
+코틀린은 할당된 값을 읽어 타입을 추론한다.
+
+**기본 타입 간 변환은 '명시적으로' 이루어져야 한다.** 이는 자바와 결정적인 차이점이다. 타입을 맞춰줘야 한다.
+
+- `to타입` 형식을 사용한다.
+
+만약 변수가 `nullable`이면 어떻게 할까? 적절한 처리가 필요하다. *기억나시나요 `null`을 다루는 방법?
+
+### 2.3.2 타입 캐스팅 ✅
+
+> 도식화를 통해 설명한다.
+
+기본 타입이 아닌 일반 타입은 어떨까?
+
+```kotlin
+private fun printAgeIfPerson(obj: Any): Int {
+    if (obj is Person) {
+        return obj.age
+    }
+
+    throw IllegalArgumentException("Person 타입이 아닙니다")
+}
+```
+
+자바에서는 `instaceof`를 사용하지만 코틀린에서는 `is`를 사용한다. 타입 변환은 `as`를 사용한다.
+
+- 스마트 캐스트를 통해 컨텍스트에서 타입을 추론한다. `if`문에서 타입을 이미 체크했기 때문에 짧게 작성 가능하다.
+  - `is`의 반대 `!is`(not is)도 사용 가능하다. 타입이 아니라면...
+  - `null`을 고려하여 `as?`도 사용한다. *거듭 반복되는 `null` 다루기. Safe call 기억하시죠?
+
+### 2.3.3 특이한 타입 3가지
+
+> 누구냐 넌?
+
+- Any, Unit, Nothing
+
+**Any**
+
+- 자바의 `Object`, 모든 객체의 최상위 타입
+- 모든 Primitive Type의 아버지.
+- Any에 `equals`, `hashCode`, `toString` 포함
+
+**Unit**
+
+- 자바의 `void`와 동일한 역할. 하지만 조금 다르다(?) 제네릭에서 계속...
+- 함수형 프로그래밍에서 `Unit`은 단 하나의 인스턴스만 갖는 타입을 의미한다. 
+  - `Unit`은 실제 존재하는 타입이라는 것을 표현한다.
+
+**Nothing**
+
+- 함수가 정상적으로 끝나지 않았다는 사실을 표현한다.
+  - 무조건 예외를 반환하는 함수, 무한 루프 함수 등
+
+### 2.3.4 String interpolation, String indexing
+
+> 문자열을 효과적으로 가공하는 방법
+
+**String interpolation**
+
+> 템플릿 리터럴과 유사하다.
+
+`${변수}` 형식이 가독성, 일괄 변환(리팩터링), 정규식 활용에 유용하다.
+
+```kotlin
+val message = """
+이렇게도 사용할 수
+있다
+""".trimIndent()
+```
+
+**String indexing**
+
+- 문자열을 배열처럼 사용할 수 있다.
+
+**<참고 자료>**
+
+- [Kotlin Docs 'Strings'](https://kotlinlang.org/docs/strings.html)
