@@ -29,7 +29,27 @@ class MemberServiceTest {
 
         assertThat(result).isEqualTo("unknown@example.com")
     }
+
+    @Test
+    fun `이름, 나이, 이메일을 포함한 회원을 가입한다`() {
+        val member = Member("유재석", 53)
+
+        assertThat(member.name).isEqualTo("유재석")
+        assertThat(member.age).isEqualTo(53)
+        assertThat(member.email).isEqualTo("unknown@example.com")
+    }
+
+    @Test
+    fun `회원가입 후 이메일을 변경할 수 있다`() {
+        val member = Member("유재석", 53)
+
+        member.email = "youquizontheblock@example.com"
+
+        assertThat(member.email).isEqualTo("youquizontheblock@example.com")
+    }
 }
+
+data class Member(val name: String, val age: Int, var email: String? = "unknown@example.com")
 
 // TODO 파라미터 기본값을 할당할 수 없을까, Elvis 연산자로 문제를 해결해야 할까?
 fun signUp(email: String?): String {
