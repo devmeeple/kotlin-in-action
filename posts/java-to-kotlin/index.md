@@ -384,3 +384,71 @@ fun judgeNumber2(number: Int) {
 ### 3.2.4 while
 
 > 기존과 동일하다.
+
+## 3.3 예외
+
+1. try catch finally: 문법적으로 완전히 동일, 단 `try catch`는 `Exression`이다.
+2. Checked Exception, Unchecked Exception: 모든 예외는 `Unchecked Exception`이다.
+3. try with resources: 구문이 없다. 대신 코틀린의 언어 특징을 활용해 `close`를 호출한다.
+
+### 3.3.1 try catch finally
+
+**주어진 문자열을 정수로 변경한다**
+
+```kotlin
+fun parseIntThrow(str: String): Int {
+    try {
+        return str.toInt()
+    } catch (e: NumberFormatException) {
+        throw IllegalArgumentException("주어진 ${str}는 숫자가 아닙니다")
+    }
+}
+```
+
+**주어진 문자열을 정수로 변경하고 실패하면 `null`을 반환한다**
+
+```kotlin
+fun parseIntThrow2(str: String): Int? {
+    return try {
+        str.toInt()
+    } catch (e: NumberFormatException) {
+        null
+    }
+}
+```
+
+### 3.3.2 Checked Exception, Unchecked Exception
+
+**프로젝트 파일의 내용을 읽는다**
+
+```kotlin
+fun readFile() {
+    val currentFile = File(".")
+    val file = File(currentFile.absolutePath + "/a.txt")
+    val reader = BufferedReader(FileReader(file))
+    println(reader.readLine())
+    reader.close()
+}
+```
+
+코틀린은 `Checked Exception`과 `Unchecked Exception`을 구분하지 않는다. 모두 `Unchecked Exception`이다.
+
+### 3.3.3 try with resources
+
+**프로젝트 파일 내용을 읽는다**
+
+```kotlin
+import java.io.BufferedReader
+import java.io.FileReader
+
+class FilePrinter {
+
+    fun readFile(path: String) {
+        BufferedReader(FileReader(path)).use { reader ->
+            println(reader.readLine())
+        }
+    }
+}
+```
+
+`try with resources`구문은 `use`로 대체됐다.
