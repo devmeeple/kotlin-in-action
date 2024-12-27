@@ -243,6 +243,10 @@ val message = """
 2. Expression, Statement
 3. switch, when: switch는 안녕. when의 시대가 도래했다.
 
+**<참고 자료>**
+
+- [Kotlin Docs 'Conditions and loops'](https://kotlinlang.org/docs/control-flow.html)
+
 ### 3.1.1 if
 
 ```kotlin
@@ -361,6 +365,10 @@ fun judgeNumber2(number: Int) {
 3. Progression, Range
 4. while: 동일
 
+**<참고 자료>**
+
+- [Kotlin Docs 'Conditions and loops'](https://kotlinlang.org/docs/control-flow.html)
+
 ### 3.2.1 foreach
 
 숫자가 들어 있는 리스트, 컬렉션, 배열 등(Iterable)을 다룬다.
@@ -390,6 +398,10 @@ fun judgeNumber2(number: Int) {
 1. try catch finally: 문법적으로 완전히 동일, 단 `try catch`는 `Exression`이다.
 2. Checked Exception, Unchecked Exception: 모든 예외는 `Unchecked Exception`이다.
 3. try with resources: 구문이 없다. 대신 코틀린의 언어 특징을 활용해 `close`를 호출한다.
+
+**<참고 자료>**
+
+- [Kotlin Docs 'Exceptions'](https://kotlinlang.org/docs/exceptions.html)
 
 ### 3.3.1 try catch finally
 
