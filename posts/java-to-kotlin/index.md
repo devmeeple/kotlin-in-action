@@ -234,3 +234,122 @@ val message = """
 > 어떻게 응용하는지 심화라고 한다. 아직 이해가 잘되지 않는다.
 
 객체마다 연산자를 직접 지정할 수 있다.
+
+# 3. 코드를 제어하는 방법
+
+## 3.1 조건문
+
+1. if: 자바와 문법 동일, 단 코틀린은 Expression으로 취급한다. 따라서 삼항 연산자가 없다.
+2. Expression, Statement
+3. switch, when: switch는 안녕. when의 시대가 도래했다.
+
+### 3.1.1 if
+
+```kotlin
+fun validateScoreIsNotNegative(score: Int) {
+    if (score < 0) {
+        throw IllegalArgumentException("${score}는 0보다 작을 수 없다")
+    }
+}
+```
+
+> 코틀린에서는 void형이 없고 대신 Unit이 존재한다. 반환 타입을 생략했다.
+
+### 3.1.2 Expression, Statement ✅
+
+```kotlin
+fun getPassOrFail(score: Int): String {
+    if (score >= 50) {
+        return "P"
+    }
+
+    return "F"
+}
+```
+
+**삼항 연산자를 찾아서**
+
+자바에서 `if-else`는 `Statement`지만 코틀린에서는 `Expression`이다. 따라서 삼항 연산자가 없다.
+
+- Statement: 프로그램의 문장, 하나의 값으로 도출되지 않는다.
+- Expression: 하나의 값으로 도출되는 문장
+
+```kotlin
+fun getGrade(score: Int): String {
+    if (score >= 90) {
+        return "A"
+    }
+    if (score >= 80) {
+        return "B"
+    }
+    if (score >= 70) {
+        return "C"
+    }
+    return "D"
+}
+```
+
+- `if (score in 0..100)` 범위 연산자를 통해 값이 특정 범위에 포함되어 있는지 여부 확인 가능하다.
+
+### 3.1.3 switch, when
+
+```
+when (값) {
+    조건부 -> 어떠한 구문
+    조건부 -> 어떠한 구분
+    else -> 어떠한 구문
+}
+```
+
+- 조건부는 여러 조건을 동시에 검사할 수 있다.
+- 값이 없을 때, 유사 Early Return처럼 동작 가능하다.
+
+```kotlin
+// in 으로 리팩터링 가능하다
+fun getGradeWithSwitch(score: Int): String {
+    return when (score / 10) {
+        9 -> "A"
+        8 -> "B"
+        7 -> "C"
+        else -> "D"
+    }
+}
+```
+
+우리는 `switch`문을 잊었다. 늘 그랬듯이. `when`의 시대가 도래했다. 시스템 가동. 준비 완료.
+
+**스마트 캐스트를 사용한 예제**
+
+```kotlin
+fun startsWithA(obj: Any): Boolean {
+    return when (obj) {
+        is String -> obj.startsWith("A")
+        else -> false
+    }
+}
+```
+
+**조건부: 여러 조건 검사**
+
+```kotlin
+fun judgeNumber(number: Int) {
+    when (number) {
+        1, 0, -1 -> println("어디서 많이 본 숫자입니다")
+        else -> println("1, 0, -1이 아닙니다")
+    }
+}
+```
+
+**값 없이 사용: 유사 Early Return**
+
+```kotlin
+fun judgeNumber2(number: Int) {
+    when {
+        number == 0 -> println("주어진 숫자는 0입니다")
+        number % 2 == 0 -> println("주어진 숫자는 짝수입니다")
+        else -> println("주어진 숫자는 홀수입니다")
+    }
+}
+```
+
+놀라운 사실, `when`은 `Enum Class`, `Sealed Class`와 함께 사용할 때 진가가 나타난다. ✅
