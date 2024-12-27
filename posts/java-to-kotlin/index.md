@@ -353,3 +353,34 @@ fun judgeNumber2(number: Int) {
 ```
 
 놀라운 사실, `when`은 `Enum Class`, `Sealed Class`와 함께 사용할 때 진가가 나타난다. ✅
+
+## 3.2 반복문
+
+1. foreach: `in`을 사용
+2. for: 등차수열과 `in`을 사용
+3. Progression, Range
+4. while: 동일
+
+### 3.2.1 foreach
+
+숫자가 들어 있는 리스트, 컬렉션, 배열 등(Iterable)을 다룬다.
+
+### 3.2.2 for
+
+> Iterable에 구현되어 있다.
+
+- `for in n..n`: 기존 방식
+- `for in n downTo n`: 역순
+- `step`: 건너뛰기
+
+### 3.2.3 Progression, Range
+
+> 코틀린에서 전통적인 for문은 등차수열을 활용한다.
+
+- `.. 연산자`: 범위를 만든다.
+    - 예) `1..3`
+- 사실 `downTo`, `step`은 함수다. *중위함수
+
+### 3.2.4 while
+
+> 기존과 동일하다.
