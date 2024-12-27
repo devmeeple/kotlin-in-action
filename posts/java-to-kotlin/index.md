@@ -452,3 +452,83 @@ class FilePrinter {
 ```
 
 `try with resources`구문은 `use`로 대체됐다.
+
+## 3.4 함수
+
+1. 함수 선언: 자바와 다르다. body가 하나의 값으로 간주되면 block을 없앨 수 있고 block이 없다면 반환 타입을 없앨 수 있다.
+2. Default arguments: 기본값을 설정한다.
+3. Named arguments: 특정 파라미터를 지정해 넣어주다.
+4. 같은 타입의 여러 파라미터 받기(가변인자): `vararg`를 사용하고, 배열을 사용할 땐 `*`를 사용한다.
+
+**<참고 자료>**
+
+- [Kotlin Docs 'Functions'](https://kotlinlang.org/docs/functions.html)
+
+### 3.4.1 함수 선언 ✅
+
+**두 정수를 받아 더 큰 정수를 반환한다**
+
+```kotlin
+fun max(a: Int, b: Int) = if (a > b) a else b
+```
+
+- `block {}`을 사용할 때, 반환 타입이 `Unit`이 아니면 반환 타입을 명시적으로 작성한다.
+    - `=`을 사용하는 경우 반환 타입 생략 가능
+- 함수는 클래스 안 또는 파일 최상단에 있을 수 있다.
+    - 파일 안에 여러 함수가 있을 수 있다.
+
+### 3.4.2 Default arguments
+
+**주어진 문자열을 N번 출력한다**
+
+```kotlin
+fun repeat(
+    str: String,
+    num: Int = 3,
+    useNewLine: Boolean = true
+) {
+    for (i in 1..num) {
+        if (useNewLine) {
+            println(str)
+        } else {
+            print(str)
+        }
+    }
+}
+```
+
+- 인자로 값을 넣어주지 않으면 기본값을 사용한다.
+    - 물론 오버로딩도 가능하다.
+
+### 3.4.3 Named arguments
+
+```kotlin
+fun printNameAndGender(name: String, gender: String) {
+    println(name)
+    println(gender)
+}
+
+printNameAndGender(name = "서머싯 몸", gender = "MALE")
+```
+
+- 매개변수 이름을 통해 직접 지정한다. 지정되지 않은 매개변수는 기본값 사용
+    - `Builder`를 직접 만들지 않고 `builder`의 장점을 가진다.
+
+### 3.4.4 같은 타입의 여러 파라미터 받기(가변인자)
+
+**문자열을 N개 받아 출력한다**
+
+```kotlin
+fun printAll(vararg strings: String) {
+    for (str in strings) {
+        println(str)
+    }
+}
+
+printAll("A", "B", "C")
+
+val array = arrayOf("A", "B", "C")
+printAll(*array)
+```
+
+가변인자를 사용할 때 `vararg`를 사용한다. 배열을 바로 넣는 대신 스프레드 연산자 `*`를 사용해야 한다.
