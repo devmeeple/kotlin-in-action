@@ -1,5 +1,5 @@
 ---
-title: "[Day 1] 객체 소개"
+title: "[Day 1] 코틀린과 함께하는 OOP"
 description: ""
 date: 2025-01-01 16:27:31
 update: 2025-01-01 16:27:31
