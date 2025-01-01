@@ -50,11 +50,29 @@ series:
     - 식별자가 프로퍼티로 변경된다.
 - `override`는 이미 정의된 함수를 재정의 하겠다는 의도를 전달한다.
 
+## 20. 가시성 변경자
+
+> 작성한 코드를 다시 보면 더 좋은 방법이 떠오른다.
+
+- 리팩터링(refactoring)을 하는 이유는 코드를 다듬어 유지 보수하기 좋은 코드를 작성하기 위해서다.
+- 소비자는 버전이 변경돼도 기능이 똑같이 동작하길 원한다. 새로운 코드를 작성하고 싶지 않다. 생산자도 마찬가지다. 변경하는 내용이 소비자에게 영향을 끼치지 않는다는 확신을 가지고 개선하고 싶다.
+    - 확신을 주는 장치는 자동화된 테스트다.
+- 소프트웨어를 설계할 때 변경해야 하는 요소와 유지되어야 하는 요소를 분리해야 한다.
+- 가시성 변경자를 통해 영역을 분리한다.
+- `private`는 주로 클래스 멤버에 사용한다.
+- 필요한 함수와 클래스만 외부에 공개하고 가능한 많은 요소를 `private`로 선언한다.
+    - 리모컨을 사용할 때 내부의 구조를 알지 못해도 사용할 수 있듯이 클라이언트에게 필요한 부분만 공개하고 내부 구현을 숨긴다.
+
 ## 코틀린은 왜 그럴까?
+
+사소하지만 왜 그럴지 나름의 근거로 추론한다.
+
+- Member function vs. Method
+- Visibility modifier vs. Access modifier
 
 ### Member function vs. Method
 
-사소한 표현이지만 중요하다고 생각한다. 클래스에 소속된 함수는 보통 메서드(method)라고 부른다. 하지만 코틀린 공식 문서는 '멤버 함수(member function)'라고 지칭한다.
+클래스에 소속된 함수는 보통 메서드(method)라고 부른다. 하지만 코틀린 공식 문서는 '멤버 함수(member function)'라고 지칭한다.
 
 코틀린은 `class` 없이도 최상위(top-level) 함수를 선언할 수 있다. 더불어 메서드도 사실 함수가 아닐까? 클래스에 소속된 함수는 멤버 함수, 소속되지 않은 함수는 함수라고
 부르면 자연스럽다.
@@ -62,5 +80,5 @@ series:
 ## 마치며
 
 - [Kotlin Docs 'Classes'](https://kotlinlang.org/docs/classes.html)
-- [kotlin Docs 'Properties'](https://kotlinlang.org/docs/properties.html)
-
+- [Kotlin Docs 'Properties'](https://kotlinlang.org/docs/properties.html)
+- [Kotlin Docs 'Visibility modifiers'](https://kotlinlang.org/docs/visibility-modifiers.html)
