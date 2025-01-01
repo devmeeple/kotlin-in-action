@@ -74,12 +74,31 @@ series:
 - `as` 키워드를 사용하여 `import` 할 때 이름을 변경할 수 있다.
 - 패키지 이름은 소문자만 사용한다.
 
+## 22. 테스트
+
+> 프로그램을 빠르게 개발하기 위해서는 지속적인 테스트가 필수다.
+
+- 코드의 동작을 검증할 때 `printlin()`은 부실한 방법이다. 매번 출력을 자세히 살펴보고 의식적으로 확인해야 한다.
+    - 오류를 찾는데 시각적인 검사를 신뢰할 수 없다.
+- 테스트를 배우면 테스트가 포함되지 않은 코드를 보면 점점 불편해지고, 테스트가 없는 코드는 틀린 코드라고 정의하기도 한다.
+
+### 22.1 테스트 프레임워크
+
+- [JUnit](https://junit.org/junit5/): 자바에서 가장 널리 쓰인다. 코틀린에서도 유용하다.
+- [Kotest](https://kotest.io/): 코틀린 전용으로 설계됐다. 언어의 여러 기능을 살려 작성 가능하다.
+- [Spek](https://www.spekframework.org/): 명세 테스트(specification test)라는 다른 형태의 테스트를 제공한다.
+
+### 22.2 테스트는 프로그램의 일부분이다
+
+- 소프트웨어 개발 과정에 테스트가 포함되어 있어야 자연스럽고 효과적이다.
+
 ## 코틀린은 왜 그럴까?
 
 사소하지만 왜 그럴지 나름의 근거로 추론한다.
 
 - Member function vs. Method
 - Visibility modifier vs. Access modifier
+- JUnit vs. Kotest
 
 ### Member function vs. Method
 
