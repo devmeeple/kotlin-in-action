@@ -29,6 +29,14 @@ class ClassTest : FunSpec({
 
         result shouldBe "반갑습니다. 아토믹 코틀린"
     }
+
+    test("override 키워드를 사용하여 함수를 재정의 한다") {
+        val rectangle = Rectangle()
+
+        val result = rectangle.draw()
+
+        result shouldBe "직사각형 완성!"
+    }
 })
 
 class EmptyBook
@@ -38,3 +46,14 @@ class Book(private val title: String) {
 }
 
 fun introduce(title: String) = "반갑습니다. $title"
+
+abstract class Polygon {
+    abstract fun draw(): String
+}
+
+class Rectangle : Polygon() {
+    override fun draw(): String {
+        return "직사각형 완성!"
+    }
+
+}
