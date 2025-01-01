@@ -21,6 +21,15 @@ class CalculateBMITest : FunSpec({
 
         result shouldBe "저체중입니다"
     }
+
+    test("체질량지수 23 이상은 과체중이다") {
+        val height = 160
+        val weight = 68
+
+        val result = calculateBMI(height, weight)
+
+        result shouldBe "과체중입니다"
+    }
 })
 
 fun calculateBMI(height: Int, weight: Int): String {
