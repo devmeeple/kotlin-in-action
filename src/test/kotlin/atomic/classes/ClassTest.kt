@@ -21,6 +21,14 @@ class ClassTest : FunSpec({
 
         result shouldBe "반갑습니다. 아토믹 코틀린"
     }
+
+    test("최상단(top-level) 함수 선언이 가능하다") {
+        val title = "아토믹 코틀린"
+
+        val result = introduce(title)
+
+        result shouldBe "반갑습니다. 아토믹 코틀린"
+    }
 })
 
 class EmptyBook
@@ -28,3 +36,5 @@ class EmptyBook
 class Book(private val title: String) {
     fun introduce() = "반갑습니다. $title"
 }
+
+fun introduce(title: String) = "반갑습니다. $title"
