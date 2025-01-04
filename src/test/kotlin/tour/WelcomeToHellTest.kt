@@ -9,4 +9,12 @@ class WelcomeToHellTest : FunSpec({
 
         message shouldBe "Welcome to Hell!"
     }
+
+    test("문자열 템플릿을 사용하여 값을 출력한다.") {
+        val problems = 2
+
+        val result = "오늘 발생한 문제는 ${problems}건 입니다."
+
+        result shouldBe "오늘 발생한 문제는 2건 입니다."
+    }
 })
