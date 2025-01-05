@@ -1,4 +1,4 @@
-package tour.practice
+package tour
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.types.shouldBeInstanceOf

@@ -1,9 +1,9 @@
-package tour.practice
+package tour
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
-class HelloWorldExerciseTest : FunSpec({
+class HelloWorldTest : FunSpec({
     test("장태근님은 향년 29세입니다") {
         val name = "장태근"
         val age = 29
