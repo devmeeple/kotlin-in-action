@@ -4,6 +4,8 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
 class ListTest : FunSpec({
+    // TODO: 2025.01.06 (1) Kotest, 숙련도 부족 (2) members, 중복 선언이 최선인가? 명료한 테스트.
+
     test("단체 채팅방 인원수를 조회한다") {
         val members = listOf("조영호", "로이 오셔로브", "블라디미르 코리코프")
 
