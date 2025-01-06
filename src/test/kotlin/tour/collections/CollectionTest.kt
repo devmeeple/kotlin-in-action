@@ -37,4 +37,14 @@ class CollectionTest : FunSpec({
 
         number2word shouldContainExactly mapOf(1 to 'a', 2 to 'b', 3 to 'c')
     }
+
+    test("정수와 값을 연결한 맵의 값에 접근한다") {
+        val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
+        val n = 2
+
+        val result = number2word[n]
+
+        result shouldBe "two"
+
+    }
 })
