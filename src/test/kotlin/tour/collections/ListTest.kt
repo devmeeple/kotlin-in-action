@@ -36,4 +36,13 @@ class ListTest : FunSpec({
 
         result shouldBe true
     }
+
+    test("변경 가능한 단체 채팅방에 인원을 추가한다") {
+        val mutableMembers = mutableListOf("장영희", "정재승", "안희연")
+
+        mutableMembers.add("이문열")
+
+        val result = mutableMembers.count()
+        result shouldBe 4
+    }
 })
