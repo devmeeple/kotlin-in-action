@@ -1,6 +1,7 @@
 package tour.collections
 
 import io.kotest.core.spec.style.FunSpec
+import io.kotest.matchers.maps.shouldContainExactly
 import io.kotest.matchers.shouldBe
 
 class CollectionTest : FunSpec({
@@ -29,5 +30,11 @@ class CollectionTest : FunSpec({
         val result = protocol.uppercase() in SUPPORTED
 
         result shouldBe false
+    }
+
+    test("1부터 3까지의 정수와 값을 연결한 맵을 선언한다") {
+        val number2word = mapOf(1 to 'a', 2 to 'b', 3 to 'c')
+
+        number2word shouldContainExactly mapOf(1 to 'a', 2 to 'b', 3 to 'c')
     }
 })
