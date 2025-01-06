@@ -16,6 +16,15 @@ class ConditionalExpressionTest : FunSpec({
 
         result.message shouldBe "당신이 이겼습니다 :("
     }
+
+    test("두 주사위 값이 다르면 패배한다") {
+        val firstResult = 3
+        val secondResult = 6
+
+        val result = compareNumber(firstResult, secondResult)
+
+        result.message shouldBe "당신은 졌어요! 하하하 :)"
+    }
 })
 
 fun compareNumber(firstResult: Int, secondResult: Int): GameResult {
