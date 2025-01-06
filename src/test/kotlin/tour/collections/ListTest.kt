@@ -27,4 +27,13 @@ class ListTest : FunSpec({
 
         result shouldBe "조영호"
     }
+
+    test("단체 채팅방에 포함된 인원을 조회한다") {
+        val findMember = "조영호"
+        val members = listOf("조영호", "로이 오셔로브", "블라디미르 코리코프")
+
+        val result = findMember in members
+
+        result shouldBe true
+    }
 })
