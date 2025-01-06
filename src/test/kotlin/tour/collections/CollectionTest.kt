@@ -5,7 +5,7 @@ import io.kotest.matchers.maps.shouldContainExactly
 import io.kotest.matchers.shouldBe
 
 class CollectionTest : FunSpec({
-    test("녹색과 빨간색 숫자 목록이 총 몇개로 구성되어있는지 구한다") {
+    test("녹색과 빨간색 숫자 목록이 총 몇 개로 구성되어 있는지 구한다") {
         val greenNumbers = listOf(1, 4, 23)
         val redNumbers = listOf(17, 2)
 
@@ -32,7 +32,7 @@ class CollectionTest : FunSpec({
         result shouldBe false
     }
 
-    test("1부터 3까지의 정수와 값을 연결한 맵을 선언한다") {
+    test("1부터 3까지의 정수와 값을 연결한 맵을 선언 한다") {
         val number2word = mapOf(1 to 'a', 2 to 'b', 3 to 'c')
 
         number2word shouldContainExactly mapOf(1 to 'a', 2 to 'b', 3 to 'c')
