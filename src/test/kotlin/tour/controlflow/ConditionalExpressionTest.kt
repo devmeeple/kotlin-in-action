@@ -28,8 +28,9 @@ class ConditionalExpressionTest : FunSpec({
 })
 
 fun compareNumber(firstResult: Int, secondResult: Int): GameResult {
-    val isEqual = firstResult == secondResult
-    return if (isEqual) {
+    // TODO: 2025.01.06 변수 네이밍 개선, 명료하게 작성하기
+    val isWon = firstResult == secondResult
+    return if (isWon) {
         GameResult.WIN
     } else {
         GameResult.LOSE
