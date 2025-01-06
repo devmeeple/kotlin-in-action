@@ -21,4 +21,13 @@ class CollectionTest : FunSpec({
 
         result shouldBe false
     }
+
+    test("in, 프로토콜 지원 여부를 조회한다 (HINT 포함)") {
+        val protocol = "smtp"
+        val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
+
+        val result = protocol.uppercase() in SUPPORTED
+
+        result shouldBe false
+    }
 })
