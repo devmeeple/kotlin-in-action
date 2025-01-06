@@ -12,4 +12,13 @@ class CollectionTest : FunSpec({
 
         result shouldBe 5
     }
+
+    test("프로토콜 지원 여부를 조회한다") {
+        val protocol = "smtp"
+        val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
+
+        val result = SUPPORTED.contains(protocol)
+
+        result shouldBe false
+    }
 })
