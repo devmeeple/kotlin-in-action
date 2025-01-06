@@ -14,17 +14,22 @@ class ConditionalExpressionTest : FunSpec({
 
         val result = compareNumber(firstResult, secondResult)
 
-        result shouldBe "당신이 이겼습니다 :("
+        result.message shouldBe "당신이 이겼습니다 :("
     }
 })
 
-// TODO: 2025.01.06 문자열은 오타를 유발한다. 디버깅하기 어렵다. 값 타입으로 하는 게 좋지 않을까? Enum Classes
-fun compareNumber(firstResult: Int, secondResult: Int): String {
+fun compareNumber(firstResult: Int, secondResult: Int): GameResult {
     val isEqual = firstResult == secondResult
     return if (isEqual) {
-        "당신이 이겼습니다 :("
+        GameResult.WIN
     } else {
-        "당신은 졌어요! 하하하하하 :)"
+        GameResult.LOSE
     }
 
+}
+
+// TODO: 2025.01.06 Enum classes 를 사용한 개선, 값 타입?
+enum class GameResult(val message: String) {
+    WIN("당신이 이겼습니다 :("),
+    LOSE("당신은 졌어요! 하하하 :)")
 }
