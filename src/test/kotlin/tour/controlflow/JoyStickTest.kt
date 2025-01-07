@@ -10,7 +10,7 @@ class JoyStickTest : FunSpec({
         val button = "asdf"
 
         val result = shouldThrow<IllegalArgumentException> {
-            showActionMessage(button)
+            onclick(button)
         }
 
         result.message shouldBe "[asdf] 버튼을 찾을 수 없습니다"
@@ -19,7 +19,7 @@ class JoyStickTest : FunSpec({
     test("A 버튼을 클릭하면 'YES' 메시지를 출력한다") {
         val button = "A"
 
-        val result = showActionMessage(button)
+        val result = onclick(button)
 
         result shouldBe "YES"
     }
@@ -27,7 +27,7 @@ class JoyStickTest : FunSpec({
     test("B 버튼을 클릭하면 'NO' 메시지를 출력한다") {
         val button = "B"
 
-        val result = showActionMessage(button)
+        val result = onclick(button)
 
         result shouldBe "NO"
     }
@@ -35,7 +35,7 @@ class JoyStickTest : FunSpec({
     test("X 버튼을 클릭하면 'MENU' 메시지를 출력한다") {
         val button = "X"
 
-        val result = showActionMessage(button)
+        val result = onclick(button)
 
         result shouldBe "MENU"
     }
@@ -43,18 +43,27 @@ class JoyStickTest : FunSpec({
     test("Y 버튼을 클릭하면 'NOTHING' 메시지를 출력한다") {
         val button = "Y"
 
-        val result = showActionMessage(button)
+        val result = onclick(button)
 
         result shouldBe "NOTHING"
     }
 })
 
-fun showActionMessage(button: String): String {
-    return when (button) {
-        "A" -> "YES"
-        "B" -> "NO"
-        "X" -> "MENU"
-        "Y" -> "NOTHING"
-        else -> throw IllegalArgumentException("[${button}] 버튼을 찾을 수 없습니다")
+fun onclick(button: String): String {
+    val buttonEnum = Button.entries.find { it.name == button }
+        ?: throw IllegalArgumentException("[$button] 버튼을 찾을 수 없습니다")
+    return when (buttonEnum) {
+        Button.A -> Button.A.text
+        Button.B -> Button.B.text
+        Button.X -> Button.X.text
+        Button.Y -> Button.Y.text
     }
+}
+
+// TODO: 2025.01.07 Enum, 버튼과 값 연결을 사용한 리팩터링
+enum class Button(val text: String) {
+    A("YES"),
+    B("NO"),
+    X("MENU"),
+    Y("NOTHING")
 }
