@@ -50,15 +50,18 @@ class JoyStickTest : FunSpec({
 })
 
 fun onclick(button: String): String {
-    val buttonEnum = Button.entries.find { it.name == button }
-        ?: throw IllegalArgumentException("[$button] 버튼을 찾을 수 없습니다")
-    return when (buttonEnum) {
+    val parsedButton = parseOf(button)
+    return when (parsedButton) {
         Button.A -> Button.A.text
         Button.B -> Button.B.text
         Button.X -> Button.X.text
         Button.Y -> Button.Y.text
     }
 }
+
+// TODO: 2025.01.07 함수 분리하기
+private fun parseOf(button: String) = (Button.entries.find { it.name == button }
+    ?: throw IllegalArgumentException("[$button] 버튼을 찾을 수 없습니다"))
 
 // TODO: 2025.01.07 Enum, 버튼과 값 연결을 사용한 리팩터링
 enum class Button(val text: String) {
