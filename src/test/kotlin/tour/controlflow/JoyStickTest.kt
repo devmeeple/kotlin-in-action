@@ -15,8 +15,19 @@ class JoyStickTest : FunSpec({
 
         result.message shouldBe "[X] 버튼을 찾을 수 없습니다"
     }
+
+    test("A 버튼을 클릭하면 'YES' 메시지를 출력한다") {
+        val button = "A"
+
+        val result = showActionMessage(button)
+
+        result shouldBe "YES"
+    }
 })
 
-fun showActionMessage(button: String) {
-    throw IllegalArgumentException("[${button}] 버튼을 찾을 수 없습니다")
+fun showActionMessage(button: String): String {
+    return when (button) {
+        "A" -> "YES"
+        else -> throw IllegalArgumentException("[${button}] 버튼을 찾을 수 없습니다")
+    }
 }
