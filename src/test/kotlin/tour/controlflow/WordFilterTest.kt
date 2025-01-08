@@ -9,23 +9,9 @@ class WordFilterTest : FunSpec({
         val words = listOf("dinosaur", "limousine", "magazine", "language")
         val keyword = 'l'
 
-        val results = findBy(words, keyword)
+        val results = words.filter { it.startsWith(keyword) }
 
         results shouldHaveSize 2
         results shouldContainExactly listOf("limousine", "language")
     }
 })
-
-private fun findBy(
-    words: List<String>,
-    keyword: Char,
-): MutableList<String> {
-    val results = mutableListOf<String>()
-    for (word in words) {
-        if (word.startsWith(keyword)) {
-            results.add(word)
-        }
-    }
-
-    return results
-}
