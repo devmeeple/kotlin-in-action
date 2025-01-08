@@ -3,7 +3,7 @@ package tour.funtions
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 
-class TimeFormaterTest : BehaviorSpec({
+class TimeIntervalConverterTest : BehaviorSpec({
     Given("hours, minutes, seconds") {
         val hours = 1
         val minutes = 20
