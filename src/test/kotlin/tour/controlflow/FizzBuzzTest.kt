@@ -4,39 +4,46 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 
 class FizzBuzzTest : BehaviorSpec({
-    Given("숫자가 주어질 때") {
-        When("3으로 나누어지는 숫자는") {
+    Given("1부터 100까지의 숫자 리스트가 주어지면") {
+        val results = fizzBuzz()
+
+        When("3으로 나누어질 때") {
             Then("[fizz]라는 단어로 변경한다") {
-                fizzBuzz(3) shouldBe "fizz"
+                results[2] shouldBe "fizz"
             }
         }
 
-        When("5로 나누어지는 숫자는") {
+        When("5로 나누어질 때") {
             Then("[buzz]라는 단어로 변경한다") {
-                fizzBuzz(5) shouldBe "buzz"
+                results[4] shouldBe "buzz"
             }
         }
 
-        When("[공배수] 3과 5로 나누어지는 숫자는") {
+        When("[공배수] 3과 5로 나누어질 때") {
             Then("[fizzbuzz]라는 단어로 변경한다") {
-                fizzBuzz(15) shouldBe "fizzbuzz"
+                results[14] shouldBe "fizzbuzz"
             }
         }
 
-        When("3과 5로 나누어지지 않는 숫자는") {
+        When("3과 5로 나누어지지 않을 때") {
             Then("값을 그대로 반환한다") {
-                fizzBuzz(1) shouldBe "1"
-                fizzBuzz(2) shouldBe "2"
-                fizzBuzz(4) shouldBe "4"
+                results[0] shouldBe "1"
+                results[1] shouldBe "2"
+                results[3] shouldBe "4"
             }
 
         }
     }
 })
 
+// TODO: 2025.01.08 시작과 종료 범위 상수 선언 
+
+private const val START = 1
+private const val END = 100
+
 // TODO: 2025.01.08 `Enum`을 사용해 추상화 리팩터링
-fun fizzBuzz(number: Int): String {
-    return FizzBuzzRule.evaluate(number)
+fun fizzBuzz(): List<String> {
+    return (START..END).map { number -> FizzBuzzRule.evaluate(number) }
 }
 
 enum class FizzBuzzRule(val divisor: Int, val word: String) {
