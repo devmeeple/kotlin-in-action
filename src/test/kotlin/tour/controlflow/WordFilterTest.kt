@@ -8,15 +8,24 @@ class WordFilterTest : FunSpec({
     test("[l]로 시작하는 단어를 조회한다") {
         val words = listOf("dinosaur", "limousine", "magazine", "language")
         val keyword = 'l'
-        val results = mutableListOf<String>()
 
-        for (word in words) {
-            if (word.startsWith(keyword)) {
-                results.add(word)
-            }
-        }
+        val results = findBy(words, keyword)
 
         results shouldHaveSize 2
         results shouldContainExactly listOf("limousine", "language")
     }
 })
+
+private fun findBy(
+    words: List<String>,
+    keyword: Char,
+): MutableList<String> {
+    val results = mutableListOf<String>()
+    for (word in words) {
+        if (word.startsWith(keyword)) {
+            results.add(word)
+        }
+    }
+
+    return results
+}
