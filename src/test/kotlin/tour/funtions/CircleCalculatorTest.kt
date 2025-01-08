@@ -19,6 +19,10 @@ class CircleCalculatorTest : BehaviorSpec({
 })
 
 fun circleArea(radius: Int): BigDecimal {
-    val area = PI * radius * radius
+    val area = calculate(radius)
     return BigDecimal(area).setScale(2, RoundingMode.HALF_UP)
+}
+
+private fun calculate(radius: Int): Double {
+    return PI * radius * radius
 }
