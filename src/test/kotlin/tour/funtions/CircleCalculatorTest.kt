@@ -26,11 +26,7 @@ class CircleCalculator {
         return formatToTwoDecimalPlaces(area)
     }
 
-    private fun calculate(radius: Int): Double {
-        return PI * radius * radius
-    }
+    private fun calculate(radius: Int): Double = PI * radius * radius
 
-    private fun formatToTwoDecimalPlaces(area: Double): BigDecimal {
-        return BigDecimal(area).setScale(2, RoundingMode.HALF_UP)
-    }
+    private fun formatToTwoDecimalPlaces(area: Double): BigDecimal = BigDecimal(area).setScale(2, RoundingMode.HALF_UP)
 }
