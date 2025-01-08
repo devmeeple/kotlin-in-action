@@ -22,6 +22,15 @@ class FizzBuzzTest : BehaviorSpec({
                 fizzBuzz(15) shouldBe "fizzbuzz"
             }
         }
+
+        When("3과 5로 나누어지지 않는 숫자는") {
+            Then("값을 그대로 반환한다") {
+                fizzBuzz(1) shouldBe "1"
+                fizzBuzz(2) shouldBe "2"
+                fizzBuzz(4) shouldBe "4"
+            }
+
+        }
     }
 })
 
