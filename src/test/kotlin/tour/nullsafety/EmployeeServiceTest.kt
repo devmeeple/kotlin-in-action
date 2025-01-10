@@ -5,6 +5,7 @@ import io.kotest.matchers.shouldBe
 
 class EmployeeServiceTest : BehaviorSpec({
     Given("Employee") {
+        val id = 1
         val notFoundId = 404
 
         When("회사 직원의 아이디를 검색할 수 없으면") {
@@ -12,6 +13,14 @@ class EmployeeServiceTest : BehaviorSpec({
 
             Then("0을 반환한다") {
                 result shouldBe 0
+            }
+        }
+
+        When("회사 직원의 아이디에 접근 가능하면") {
+            val result = salaryById(id)
+
+            Then("급여를 반환한다") {
+                result shouldBe 20
             }
         }
     }
