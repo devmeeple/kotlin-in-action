@@ -1,5 +1,6 @@
 package start
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 
@@ -37,6 +38,24 @@ class GradeCalculatorTest : BehaviorSpec({
             }
         }
 
+        When("60점 미만은") {
+            val result = calculate(59)
+
+            Then("학점은 'F'입니다") {
+                result shouldBe "학점은 F입니다"
+            }
+        }
+
+        When("잘못된 입력은") {
+            val result = shouldThrow<IllegalArgumentException> {
+                calculate(-1)
+            }
+
+            Then("에러가 발생한다") {
+                result.message shouldBe "잘못된 입력입니다: -1"
+            }
+        }
+
     }
 })
 
@@ -46,6 +65,7 @@ fun calculate(score: Int): String {
         in 80..89 -> "학점은 B입니다"
         in 70..79 -> "학점은 C입니다"
         in 60..69 -> "학점은 D입니다"
-        else -> "학점은 F입니다."
+        in 0..59 -> "학점은 F입니다"
+        else -> throw IllegalArgumentException("잘못된 입력입니다: $score")
     }
 }
