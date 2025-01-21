@@ -14,5 +14,13 @@ class AggregateOperations : BehaviorSpec({
                 result shouldBe 15
             }
         }
+
+        When("element 개수를") {
+            val result = numbers.count()
+
+            Then("반환한다") {
+                result shouldBe 5
+            }
+        }
     }
 })
