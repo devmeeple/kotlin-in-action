@@ -1,4 +1,4 @@
-package ch07.NonnullTypesWithoutImmediateInitializationLateInitialization
+package ch07.NonnullTypesWithoutImmediateInitializationLateinitializedProperties
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
