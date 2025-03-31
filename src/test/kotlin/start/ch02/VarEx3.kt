@@ -23,4 +23,12 @@ class VarEx3 : BehaviorSpec({
             result shouldBe 10_000_000_000L
         }
     }
+
+    Given("[추론] Boolean 타입의 변수를 선언하고 초기화 했을 때") {
+        val result = true
+
+        Then("결과를 반환한다") {
+            result shouldBe true
+        }
+    }
 })
