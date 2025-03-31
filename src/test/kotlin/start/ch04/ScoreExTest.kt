@@ -52,12 +52,13 @@ class ScoreExTest : BehaviorSpec({
     }
 })
 
+// TODO: 2025-03-31 until(~까지), 마지막 숫자가 범위에 포함되지 않는다.
 private fun getGrade(score: Int): Char {
-    return when {
-        score >= 90 -> 'A'
-        score >= 80 -> 'B'
-        score >= 70 -> 'C'
-        score >= 60 -> 'D'
+    return when (score) {
+        in 90..100 -> 'A'
+        in 80 until 90 -> 'B'
+        in 70 until 80 -> 'C'
+        in 60 until 70 -> 'D'
         else -> 'F'
     }
 }
