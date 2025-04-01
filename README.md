@@ -12,6 +12,14 @@ val numL2 = 12345678912345
 - 숫자에 언더바를 사용할 때는, 뒤에서부터 3자리씩 나누는 것이 가독성에 좋다.
 - [Numbers](https://kotlinlang.org/docs/numbers.html)
 
+## 조건문
+
+- 코틀린은 `if`가 표현식이기 때문에 삼항 연산자를 제공하지 않는다. 자바나 자바스크립트의 삼항 연산자를 대체한다.
+    - 표현식이란 값을 반환하는 코드를 의미한다.
+- 조건이 여러 개 일 때는 `when`이 가독성에 좋다.
+- [Conditions and loops](https://kotlinlang.org/docs/control-flow.html)
+- [Ternary operator](https://discuss.kotlinlang.org/t/ternary-operator/2116)
+
 **<참고 자료>**
 
 - [『Kotlin in Action: 2/e』(세바스티안 아이그너·로만 엘리자로프·스베트라나 이사코바·드미트리 제메로프, 에이콘출판, 2017)](https://product.kyobobook.co.kr/detail/S000215768644)
