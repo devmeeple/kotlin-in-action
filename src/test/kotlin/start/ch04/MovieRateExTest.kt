@@ -16,26 +16,33 @@ class MovieRateExTest : BehaviorSpec({
         When("8.0 이상이면") {
             val rating = 8.0
             val result = recommendMoviesBy(rating)
-            Then("토이 스토리를 추천한다") {
-                result shouldBe "토이 스토리"
+            Then("어바웃 타임과 토이 스토리를 추천한다") {
+                result shouldBe "어바웃 타임\n토이 스토리"
             }
         }
 
         When("7.0 이상이면") {
             val rating = 7.0
             val result = recommendMoviesBy(rating)
-            Then("고질라를 추천한다") {
-                result shouldBe "고질라"
+            Then("모든 영화를 추천한다") {
+                result shouldBe "어바웃 타임\n토이 스토리\n고질라"
             }
         }
     }
 })
 
 private fun recommendMoviesBy(rating: Double): String {
-    return when {
-        rating >= 9 -> "어바웃 타임"
-        rating >= 8 -> "토이 스토리"
-        rating >= 7 -> "고질라"
-        else -> throw IllegalArgumentException("제공하지 않는 평점입니다")
+    var result = ""
+
+    if (rating <= 9) {
+        result += "어바웃 타임\n"
     }
+    if (rating <= 8) {
+        result += "토이 스토리\n"
+    }
+    if (rating <= 7) {
+        result += "고질라\n"
+    }
+
+    return result.trim()
 }
