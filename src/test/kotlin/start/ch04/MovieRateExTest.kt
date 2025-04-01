@@ -32,13 +32,10 @@ class MovieRateExTest : BehaviorSpec({
 })
 
 private fun recommendMoviesBy(rating: Double): String {
-    return if (rating >= 9) {
-        "어바웃 타임"
-    } else if (rating >= 8) {
-        "토이 스토리"
-    } else if (rating >= 7) {
-        "고질라"
-    } else {
-        throw IllegalArgumentException("제공하지 않는 평점입니다")
+    return when {
+        rating >= 9 -> "어바웃 타임"
+        rating >= 8 -> "토이 스토리"
+        rating >= 7 -> "고질라"
+        else -> throw IllegalArgumentException("제공하지 않는 평점입니다")
     }
 }
