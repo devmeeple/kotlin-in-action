@@ -7,6 +7,6 @@ fun main() {
     )
 
     for (review in reviews) {
-        println("영화 제목: " + review.title + ", 리뷰: " + review.review)
+        println("영화 제목: ${review.title}, 리뷰: ${review.review}")
     }
 }
