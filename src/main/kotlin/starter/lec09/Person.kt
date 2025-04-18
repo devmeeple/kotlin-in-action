@@ -1,4 +1,4 @@
-package starter.sec09
+package starter.lec09
 
 /**
  * primary constructor
