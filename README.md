@@ -20,6 +20,21 @@ val numL2 = 12345678912345
 - [Conditions and loops](https://kotlinlang.org/docs/control-flow.html)
 - [Ternary operator](https://discuss.kotlinlang.org/t/ternary-operator/2116)
 
+## 클래스(Class)
+
+1. Data Class
+2. Enum Class
+3. Sealed Class, Sealed Interface
+
+### 1. Data Class
+
+- DTO(Data Transfer Object)는 데이터의 동등성 비교, 출력이 필요한 상황이 많다. 따라서 `equals`, `hashCode`, `toString` 같은 메서드가 필요하다.
+- `Named arguments`를 사용하여 Builder 패턴을 사용했을 때 얻는 이점을 동일하게 얻을 수 있다.
+
+**Java**
+
+- `Record Classes`는 Kotlin `Data Class`와 비슷한 결과를 얻는다.
+
 **<참고 자료>**
 
 - [『Kotlin in Action: 2/e』(세바스티안 아이그너·로만 엘리자로프·스베트라나 이사코바·드미트리 제메로프, 에이콘출판, 2017)](https://product.kyobobook.co.kr/detail/S000215768644)
