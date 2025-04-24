@@ -25,7 +25,7 @@ fun main() {
 
     // 람다를 직접 호출하는 방법 2
     isApple.invoke(fruits[0])
-    
+
     filterFruits(fruits, isApple)
     filterFruits(fruits) { it.name == "사과" }
 }
@@ -38,4 +38,8 @@ private fun filterFruits(fruits: List<Fruit>, filter: (Fruit) -> Boolean): List<
         }
     }
     return results
+}
+
+private fun filterFruits2(fruits: List<Fruit>, filter: (Fruit) -> Boolean): List<Fruit> {
+    return fruits.filter(filter)
 }

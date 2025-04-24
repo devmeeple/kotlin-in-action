@@ -35,6 +35,14 @@ val numL2 = 12345678912345
 
 - `Record Classes`는 Kotlin `Data Class`와 비슷한 결과를 얻는다.
 
+## 컬렉션을 함수로 다루는 방법
+
+- `filter`, `filterIndexed`,`map`, `mapIndexed`, `mapNotNull`
+- `all`, `none`, `any`, `count`, `sortedBy`, `sortedByDescending`, `distinctBy`, `first`, `firstOrNull`, `last`,
+  `lastOrNull`
+- `groupBy`, `associateBy`
+- `flatMap`, `flatten`
+
 **<참고 자료>**
 
 - [『Kotlin in Action: 2/e』(세바스티안 아이그너·로만 엘리자로프·스베트라나 이사코바·드미트리 제메로프, 에이콘출판, 2017)](https://product.kyobobook.co.kr/detail/S000215768644)
